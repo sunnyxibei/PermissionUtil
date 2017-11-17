@@ -51,10 +51,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private List<String> getDeniedPermission(String[] phone, String[] storage) {
+    private List<String> getDeniedPermission(String[]... pers) {
         List<String> permissions = new ArrayList<>();
-        checkDeniedPermission(phone, permissions);
-        checkDeniedPermission(storage, permissions);
+        for (String[] p : pers) {
+            checkDeniedPermission(p, permissions);
+        }
         return permissions;
     }
 
